@@ -11,9 +11,9 @@ import shutil
 from jinja2 import Environment, FileSystemLoader
 
 OUTPUT_DIR = "docs"
-STATIC_SRC = "static"
+STATIC_DIR = os.path.join(OUTPUT_DIR, "static")
 TEMPLATES_DIR = "templates"
-PROBLEMS_DIR = "static/uploads/problems"
+PROBLEMS_DIR = os.path.join(STATIC_DIR, "uploads", "problems")
 
 
 def extract_week_number(filename):
@@ -52,13 +52,11 @@ def scan_folder(path, rel_path=''):
 
 
 def build():
-    # Clean and create output directory
-    if os.path.exists(OUTPUT_DIR):
-        shutil.rmtree(OUTPUT_DIR)
-    os.makedirs(OUTPUT_DIR)
-
-    # Copy static files
-    shutil.copytree(STATIC_SRC, os.path.join(OUTPUT_DIR, "static"))
+    # Clean only generated HTML files, leave static/ intact
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
+    for f in os.listdir(OUTPUT_DIR):
+        if f.endswith(".html"):
+            os.remove(os.path.join(OUTPUT_DIR, f))
 
     # Setup Jinja2 environment
     env = Environment(loader=FileSystemLoader(TEMPLATES_DIR))
