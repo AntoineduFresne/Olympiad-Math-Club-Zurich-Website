@@ -11,7 +11,7 @@ def extract_week_number(filename):
 # ✅ Make About Us the new home page
 @app.route('/')
 def home():
-    return render_template('about.html')
+    return render_template('home.html')
 
 
 
