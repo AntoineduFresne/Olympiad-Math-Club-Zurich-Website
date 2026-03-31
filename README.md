@@ -26,6 +26,7 @@ This file is copied into problem directories by `compile_and_clean.py` during co
 
 ## Adding New Problems
 
-1. Place your `.tex` files in the appropriate subfolder under `static/uploads/problems/`
-2. Run `python compile_and_clean.py`
-3. The PDFs are generated in the same location and automatically appear on the website
+1. Export your `.tex` files from Overleaf to the appropriate subfolder under `static/uploads/problems/`
+2. Run `python compile_and_clean.py` from the project root
+3. The script compiles all `.tex` files to PDF and cleans up the source files
+4. The PDFs automatically appear on the website
