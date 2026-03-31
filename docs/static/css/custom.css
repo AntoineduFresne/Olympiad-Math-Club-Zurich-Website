@@ -24,13 +24,6 @@ main {
     border: none;
     padding: 0.5rem 1rem;
 }
-.accordion-body .list-group-item a {
-    text-decoration: none;
-}
-.accordion-body .list-group-item a:hover {
-    text-decoration: underline;
-}
-
 /* Nested accordion indent */
 .accordion .accordion {
     margin-left: 1rem;
