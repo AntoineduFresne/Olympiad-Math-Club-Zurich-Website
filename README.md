@@ -23,3 +23,9 @@ A shared LaTeX preamble containing common packages, custom commands, and theorem
 - Consistent styling and formatting
 
 This file is copied into problem directories by `compile_and_clean.py` during compilation.
+
+## Adding New Problems
+
+1. Place your `.tex` files in the appropriate subfolder under `static/uploads/problems/`
+2. Run `python compile_and_clean.py`
+3. The PDFs are generated in the same location and automatically appear on the website
